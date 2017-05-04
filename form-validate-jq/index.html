@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Form</title>
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700&amp;subset=cyrillic" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body class="container">
+    <section class="form">
+      <div class="form__image">
+        <img src="img/form-mail.svg" alt="" class="form-image__mail-image">
+        <img src="img/form-table.svg" alt="" class="form-image__table-image">
+      </div>
+      <div class="form__content">
+        <h1 class="form__title">Сохрани свой аккаунт</h1>
+        <p class="form__subtitle">Получи бесплатно неограниченное количество форм, вопросов и ответов</p>
+        <form action="/" class="form__item" id="form">
+          <label for=""  class="form__label form__label--name"><input type="name" name="name" class="form__field form__field--name" placeholder="Имя или никнейм"></label>
+          <label for="" class="form__label form__label--email"><input type="email" name="email" class="form__field form__field--email" placeholder="Email"></label>
+          <label for="" class="form__label form__label--password"><input type="password" name="password" class="form__field form__field--password" placeholder="Пароль"></label>
+          <button type="submit" class="form__btn">Сохранить</button>
+        </form>
+        <p class="form__sign-in">Уже есть аккаунт?<a href="#" class="form__sign-in--link">Войти</a></p>
+      </div>
+    </section>
+    
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src='js/jquery.validate.min.js'></script>
+    <script>
+      $(document).ready(function() {
+        $('#form').validate({
+          rules: {
+            name:{
+              required: true,
+              minlength: 4,
+            },
+            email:{
+              required: true,
+              email: true,
+              minlength: 4,
+            },
+            password:{
+              required: true,
+              minlength: 4,
+            }
+          },
+          messages:{
+
+            name:{
+              required: "Это поле обязательно для заполнения",
+              minlength: "Имя должно быть минимум 4 символа",
+            },
+            email:{
+              required: "Это поле обязательно для заполнения",
+              email: "Введите в формате e-mail",
+            },
+
+            password:{
+              required: "Это поле обязательно для заполнения",
+              minlength: "Пароль должен быть минимум 6 символа",
+              maxlength: "Пароль должен быть максимум 16 символов",
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
